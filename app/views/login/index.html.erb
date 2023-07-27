@@ -1,0 +1,23 @@
+<div class="bg-neutral p-8 rounded w-full md:w-96 shadow-neon">
+  <h2 class="text-2xl font-semibold mb-6 text-center">Kobo Access</h2>
+  <form action="/login" method="POST">
+    <div class="mb-4">
+      <label for="username" class="block text-sm font-bold mb-2">Username</label>
+      <input type="text" name="username" value="" class="input input-bordered w-full max-w-xs" />
+    </div>
+    <div class="mb-6">
+      <label for="password" class="block text-sm font-bold mb-2">Password</label>
+      <input type="password" name="password" value="" class="input input-bordered w-full max-w-xs" required />
+    </div>
+    <div>
+      <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">
+        Login
+      </button>
+    </div>
+    <% if flash[:error] %>
+      <div class="py-4 text-error">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+  </form>
+</div>

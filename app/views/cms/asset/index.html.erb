@@ -1,0 +1,22 @@
+<h1 class="font-bold text-2xl">Assets</h1>
+<table class="table">
+  <!-- head -->
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created</th>
+      <th>Last Modified</th>
+      <th>Submissions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @result["results"].each do |data| %>
+      <tr>
+        <td class="hover:bg-secondary"><a href="/cms/assets/<%= data["uid"] %>" class="block"><%= data["name"] %></a></td>
+        <td><%= DateTime.parse(data["date_created"]).strftime("%B %d, %Y") %></td>
+        <td><%= DateTime.parse(data["date_modified"]).strftime("%B %d, %Y") %></td>
+        <td class="text-center"><%= data["deployment__submission_count"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

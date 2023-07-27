@@ -1,0 +1,25 @@
+<h1>Detail</h1>
+<div class="overflow-x-auto h-[500px]">
+  <table class="table table-pin-rows table-pin-cols">
+    <thead>
+      <tr class="text-accent">
+        <th>Name</th>
+        <th>Start</th>
+        <th>Selesai</th>
+        <th>Hp</th>
+        <th>Submitted by</th>
+      </tr>
+    </thead>
+    <tbody class="max-h-[200px]">
+      <% @result["results"].each do |data| %>
+        <tr class="hover">
+          <td><%= data["uname"] %></td>
+          <td><%= DateTime.parse(data["start"]).strftime("%B %d, %Y %H:%M") %></td>
+          <td><%= DateTime.parse(data["selesai"]).strftime("%B %d, %Y %H:%M") %></td>
+          <td><%= data["nohp"] %></td>
+          <td><%= data["_submitted_by"]%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
